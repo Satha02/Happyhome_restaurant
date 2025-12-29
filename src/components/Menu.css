@@ -1,0 +1,176 @@
+/* ================= FONT ================= */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+p, button, input {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= MENU SECTION ================= */
+.menu-section {
+  background: black;
+  padding: 80px 20px;
+}
+
+/* ================= FILTER BUTTONS ================= */
+.menu-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.menu-filters button {
+  background: transparent;
+  color: orange;
+  border: 1px solid orange;
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-filters button.active,
+.menu-filters button:hover {
+  background: orange;
+  color: black;
+}
+
+/* ================= GRID ================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ================= CARD ================= */
+.menu-card {
+  position: relative;
+  background: #0e0e0e;
+  border-radius: 18px;
+  padding: 16px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 0 22px rgba(255,165,0,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 32px rgba(255,165,0,0.35);
+}
+
+/* ================= IMAGE (FULL BOX – NO CROP ISSUE) ================= */
+.menu-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;          /* 🔥 fill card cleanly */
+  border-radius: 14px;
+  margin-bottom: 14px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* ================= TEXT ================= */
+.menu-card h4 {
+  color: orange;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.menu-card p {
+  color: #ffb300;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ================= VEG / NON-VEG ================= */
+.food-type {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 14px;
+}
+
+/* ================= SUNDAY SPECIAL ================= */
+.special-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, orange, #ff7a00);
+  color: black;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* ================= ALL MENU IMAGE CARD ================= */
+.menu-image-card {
+  padding: 12px;
+}
+
+.menu-full-img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;       /* 🔥 full menu visible */
+  border-radius: 16px;
+  cursor: pointer;
+  background: black;
+}
+
+/* ================= IMAGE MODAL (CLICK PREVIEW) ================= */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.image-modal img {
+  max-width: 92%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(255,165,0,0.6);
+}
+
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 28px;
+  color: orange;
+  cursor: pointer;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-card img {
+    height: 220px;
+  }
+
+  .menu-full-img {
+    height: 240px;
+  }
+}

@@ -1,0 +1,151 @@
+/* ================= NAVBAR ================= */
+.nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 40px;
+  background-color: #000;
+  color: orange;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ================= LOGO ================= */
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo image */
+.logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid orange;
+  background: #000;
+}
+
+/* Logo text */
+.logo-box h2 {
+  color: orange;
+  font-size: 22px;
+  margin: 0;
+}
+
+/* ================= RIGHT SIDE ================= */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ================= CALL ICON ================= */
+.call-icon {
+  background: orange;
+  color: black;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  text-decoration: none;
+
+  box-shadow: 0 0 12px rgba(255,165,0,0.6);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.call-icon:hover {
+  transform: scale(1.1);
+  background: #ffb300;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links li {
+  color: orange;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover */
+.nav-links li:hover {
+  color: #ffb300;
+}
+
+/* 🔥 ACTIVE SECTION (scroll detect) */
+.nav-links li.active {
+  background: orange;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: orange;
+}
+
+/* ================= MOBILE VIEW ================= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+
+    width: 100%;
+    background-color: black;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+    display: none;
+
+    border-top: 1px solid orange;
+    z-index: 100;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Active item mobile */
+  .nav-links li.active {
+    width: auto;
+  }
+
+  /* Mobile logo size */
+  .logo-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-box h2 {
+    font-size: 20px;
+  }
+}
