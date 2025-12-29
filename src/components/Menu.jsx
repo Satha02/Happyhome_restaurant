@@ -5,8 +5,8 @@ import bg44 from "../assets/bg55.jpg";
 // Menu images (ALL)
 import menu1 from "../assets/milkshake.jpeg";
 import menu2 from "../assets/rice.jpeg";
-import menu3 from "../assets/veg.jpg";
-import menu4 from "../assets/prawn.jpg";
+import menu3 from "../assets/milkshake.jpeg";
+import menu4 from "../assets/rice.jpeg";
 
 // Food images
 import vegImg from "../assets/vrc.jpg";
