@@ -3,10 +3,16 @@ import "./Menu.css";
 import bg44 from "../assets/bg55.jpg";
 
 // Menu images (ALL)
-import menu1 from "../assets/milkshake.jpeg";
-import menu2 from "../assets/rice.jpeg";
-import menu3 from "../assets/milkshake.jpeg";
-import menu4 from "../assets/rice.jpeg";
+import menu1 from "../assets/3.png";
+import menu2 from "../assets/4.png";
+import menu3 from "../assets/5.png";
+import menu4 from "../assets/6.png";
+import menu4 from "../assets/7.png";
+import menu4 from "../assets/1.png";
+import menu4 from "../assets/2.png";
+
+
+
 
 // Food images
 import vegImg from "../assets/vrc.jpg";
