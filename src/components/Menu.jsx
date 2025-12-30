@@ -7,20 +7,12 @@ import menu1 from "../assets/3.png";
 import menu2 from "../assets/4.png";
 import menu3 from "../assets/5.png";
 import menu4 from "../assets/6.png";
-import menu4 from "../assets/7.png";
-import menu4 from "../assets/1.png";
-import menu4 from "../assets/2.png";
-
-
-
+import menu5 from "../assets/7.png";
+import menu6 from "../assets/1.png";
+import menu7 from "../assets/2.png";
 
 // Food images
-import vegImg from "../assets/vrc.jpg";
 import biriyaniImg from "../assets/biriyani.jpg";
-import noodlesImg from "../assets/eggnood.jpg";
-import juiceImg from "../assets/juice.jpg";
-import cl1 from "../assets/cl1.jpg";
-import cm1 from "../assets/cm2.jpg";
 import vr1 from "../assets/vr1.jpg";
 import vrc1 from "../assets/vrc1.jpg";
 import erc2 from "../assets/erc2.jpg";
@@ -33,14 +25,9 @@ import vn1 from "../assets/vn1.jpg";
 import cd1 from "../assets/cd1.jpg";
 import bbq from "../assets/bbq.jpg";
 import Lj from "../assets/Lj.jpg";
-
-
-
-
-
+import cm1 from "../assets/cm2.jpg";
 
 export default function Menu() {
-  /* ================= STATES ================= */
   const [activeCategory, setActiveCategory] = useState("All");
   const [previewImg, setPreviewImg] = useState(null);
 
@@ -61,7 +48,7 @@ export default function Menu() {
   /* ================= MENU ITEMS ================= */
   const menuItems = [
     { name: "Veg Rice & Curry", price: "Rs. 400", img: vrc1, type: "veg", category: "Rice & Curry" },
-    { name: "Egg Rice & Curry", price: "Rs. 500", img: erc2 , type: "nonveg", category: "Rice & Curry" },
+    { name: "Egg Rice & Curry", price: "Rs. 500", img: erc2, type: "nonveg", category: "Rice & Curry" },
     { name: "Chicken Rice & Curry", price: "Rs. 700", img: crc1, type: "nonveg", category: "Rice & Curry" },
 
     { name: "Veg Fried Rice", price: "Rs. 450", img: vr1, type: "veg", category: "Fried Rice" },
@@ -76,8 +63,7 @@ export default function Menu() {
     { name: "Chicken Devil", price: "Rs. 850", img: cd1, type: "nonveg", category: "Devil" },
 
     { name: "BBQ Chicken Full", price: "Rs. 2000", img: bbq, type: "nonveg", category: "BBQ" },
-     { name: "BBQ Chicken", price: "Rs. 890", img: bbq, type: "nonveg", category: "Shawarma" },
-
+    { name: "BBQ Chicken", price: "Rs. 890", img: bbq, type: "nonveg", category: "BBQ" },
 
     { name: "Fresh Lime Juice", price: "Rs. 250", img: Lj, type: "veg", category: "Juice" },
     { name: "Milkshake", price: "Rs. 350", img: cm1, type: "veg", category: "Milkshake" },
@@ -92,9 +78,11 @@ export default function Menu() {
     },
   ];
 
-  const filteredItems = menuItems.filter(
-    (item) => item.category === activeCategory
-  );
+  /* ✅ FIXED FILTER LOGIC */
+  const filteredItems =
+    activeCategory === "All"
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeCategory);
 
   return (
     <section
@@ -107,6 +95,7 @@ export default function Menu() {
         `,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        scrollMarginTop: "80px", // 🔥 navbar offset
       }}
     >
       {/* CATEGORY FILTER */}
@@ -124,33 +113,21 @@ export default function Menu() {
 
       {/* MENU GRID */}
       <div className="menu-grid">
-        {/* ALL → MENU CARDS */}
         {activeCategory === "All" ? (
-          <>
-            {[menu1, menu2,menu3,menu4].map((img, i) => (
-              <div className="menu-card menu-image-card" key={i}>
-                <img
-                  src={img}
-                  alt="Menu Card"
-                  className="menu-full-img"
-                  onClick={() => setPreviewImg(img)}
-                />
-              </div>
-            ))}
-          </>
+          [menu1, menu2, menu3, menu4, menu5, menu6, menu7].map((img, i) => (
+            <div className="menu-card menu-image-card" key={i}>
+              <img
+                src={img}
+                alt="Menu Card"
+                className="menu-full-img"
+                onClick={() => setPreviewImg(img)}
+              />
+            </div>
+          ))
         ) : (
           filteredItems.map((item, index) => (
             <div className="menu-card" key={index}>
-              {item.special && (
-                <span className="special-badge">🔥 Sunday Special</span>
-              )}
-
-              {!["Drinks", "Milkshake"].includes(item.category) && (
-                <span className={`food-type ${item.type}`}>
-                  {item.type === "veg" ? "🟢" : "🔴"}
-                </span>
-              )}
-
+              {item.special && <span className="special-badge">🔥 Sunday Special</span>}
               <img src={item.img} alt={item.name} />
               <h4>{item.name}</h4>
               <p>{item.price}</p>
@@ -159,7 +136,7 @@ export default function Menu() {
         )}
       </div>
 
-      {/* 🔍 IMAGE PREVIEW MODAL */}
+      {/* IMAGE PREVIEW MODAL */}
       {previewImg && (
         <div className="image-modal" onClick={() => setPreviewImg(null)}>
           <img src={previewImg} alt="Preview" />

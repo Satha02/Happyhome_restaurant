@@ -6,18 +6,23 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // 🔥 Smooth scroll
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setOpen(false); // close mobile menu
-    }
-  };
+ // 🔥 Smooth scroll (FIXED)
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (!section) return;
 
-  // 🔥 Detect active section on scroll
+  const yOffset = -80;
+  const y =
+    section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({ top: y, behavior: "smooth" });
+  setOpen(false);
+};
+
+
+  // 🔥 Detect active section on scroll (UPDATED)
   useEffect(() => {
-    const sections = ["home", "about", "menu", "contact"];
+    const sections = ["home", "about", "menu", "reviews", "contact"];
 
     const handleScroll = () => {
       sections.forEach((id) => {
@@ -73,6 +78,14 @@ export default function Navbar() {
           onClick={() => scrollToSection("menu")}
         >
           Menu
+        </li>
+
+        {/* ⭐ NEW REVIEWS LINK */}
+        <li
+          className={activeSection === "reviews" ? "active" : ""} 
+          onClick={() => scrollToSection("reviews")}
+        >
+          Reviews
         </li>
 
         <li
